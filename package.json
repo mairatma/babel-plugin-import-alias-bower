@@ -35,6 +35,7 @@
   "devDependencies": {
     "istanbul": "^0.4.0",
     "jshint": "^2.7.0",
-    "nodeunit": "^0.9.1"
+    "nodeunit": "^0.9.1",
+    "sinon": "^1.17.2"
   }
 }
