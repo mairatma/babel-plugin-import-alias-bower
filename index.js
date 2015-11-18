@@ -22,13 +22,11 @@ module.exports = function() {
 
   return {
     visitor: {
-      ImportDeclaration: function(path) {
-        path.node.source.value = renameAlias(path.node.source.value);
-      },
-
-      ExportDeclaration: function(path) {
-        if (path.node.source) {
-          path.node.source.value = renameAlias(path.node.source.value);
+      ModuleDeclaration: {
+        enter: function(path) {
+          if (path.node.source) {
+            path.node.source.value = renameAlias(path.node.source.value);
+          }
         }
       }
     }
