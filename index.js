@@ -29,6 +29,15 @@ module.exports = function() {
           }
         }
       }
+    },
+
+    post: function(file) {
+      file.metadata.modules.imports.forEach(function(importData) {
+        importData.source = renameAlias(importData.source);
+      });
+      file.metadata.modules.exports.specifiers.forEach(function(exportData) {
+        exportData.source = renameAlias(exportData.source);
+      });
     }
   };
 };

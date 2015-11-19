@@ -23,6 +23,7 @@ module.exports = {
 
     var expected = 'import foo from "/path/to/bower/bar/src/foo";';
     assert.strictEqual(expected, result.code);
+    assert.strictEqual('/path/to/bower/bar/src/foo', result.metadata.modules.imports[0].source);
     test.done();
   },
 
@@ -32,6 +33,7 @@ module.exports = {
 
     var expected = 'import foo from "../bar/src/foo";';
     assert.strictEqual(expected, result.code);
+    assert.strictEqual('../bar/src/foo', result.metadata.modules.imports[0].source);
     test.done();
   },
 
@@ -41,6 +43,17 @@ module.exports = {
 
     var expected = 'export * from "/path/to/bower/bar/src/foo";';
     assert.strictEqual(expected, result.code);
+    assert.strictEqual('/path/to/bower/bar/src/foo', result.metadata.modules.exports.specifiers[0].source);
+    test.done();
+  },
+
+  testNotBowerExport: function(test) {
+    var code = 'export * from "../bar/src/foo";';
+    var result = babel.transform(code, {plugins: [plugin]});
+
+    var expected = 'export * from "../bar/src/foo";';
+    assert.strictEqual(expected, result.code);
+    assert.strictEqual('../bar/src/foo', result.metadata.modules.exports.specifiers[0].source);
     test.done();
   },
 
