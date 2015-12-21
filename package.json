@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "babel-core": "^6.1.2",
-    "bower-directory": "^1.0.0"
+    "bower": "^1.7.1"
   },
   "devDependencies": {
     "istanbul": "^0.4.0",
