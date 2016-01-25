@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-import-alias-bower",
   "version": "0.0.1",
-  "description": "A babel plugin for Metal.js that automatically registers components.",
+  "description": "A babel plugin that allows using aliases to reference bower files in ES2015 imports",
   "license": "MIT",
   "repository": "mairatma/babel-plugin-import-alias-bower",
   "author": {
